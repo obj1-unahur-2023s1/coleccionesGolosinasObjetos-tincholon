@@ -4,12 +4,12 @@ import sabores.*
 object mariano {
 	// ----- VARIABLES -----
 	const bolsaDeGolosinas = []
-	// ----- MÉTODOS DE INDICACIÓN ------
+	// ----- METODOS DE INDICACION ------
 	method comprar(unaGolosina) {bolsaDeGolosinas.add(unaGolosina)}
 	method desechar(unaGolosina) {bolsaDeGolosinas.remove(unaGolosina)}
-	method morder(unaGolosina) {unaGolosina.recibirMordisco()}
-	method probarGolosinas() {bolsaDeGolosinas.map({golosina => self.morder(golosina)})}
-	// ------ MÉTODOS DE CONSULTA -------
+	method probarGolosinas() {bolsaDeGolosinas.forEach({golosina => golosina.recibirMordisco()})}
+	// ------ METODOS DE CONSULTA -------
+	method bolsaDeGolosinas() = bolsaDeGolosinas
 	method cantidadDeGolosinas() = bolsaDeGolosinas.size()
 	method tieneLaGolosina(unaGolosina) = bolsaDeGolosinas.contains(unaGolosina)
 	method hayGolosinaSinTACC() = bolsaDeGolosinas.any({golosina => not(golosina.contieneGluten())})
